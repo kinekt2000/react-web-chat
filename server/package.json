@@ -1,0 +1,29 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "server side of chat app",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kinekt2000/react-web-chat.git"
+  },
+  "keywords": [
+    "react",
+    "chat"
+  ],
+  "author": "John C. Alastor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kinekt2000/react-web-chat/issues"
+  },
+  "homepage": "https://github.com/kinekt2000/react-web-chat#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7",
+    "socket.io": "^4.0.1"
+  }
+}
