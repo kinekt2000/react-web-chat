@@ -8,7 +8,6 @@ import { Context } from "../../Store"
 import Input from "./Input"
 
 import styles from "./styles.css"
-console.log(styles);
 
 function LogIn({location}) {
     const [s_Room, SetRoom] = useState("");

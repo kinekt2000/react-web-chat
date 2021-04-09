@@ -13,13 +13,19 @@ import MessageInput from "./MessageInput"
 
 import styles from "./styles.css"
 
+const DEPLOY = true;
+const HOTSNAME = "kinekt-react-chat.herokuapp.com";
 
 let socket;
 const socketSettigns = {
     "force new connection": true,
     "reconnectAttempts": "Infinity",
     "timeout": 10001,
-    "transports": ["websocket"]
+    "transports": ["websocket"],
+    extraHeaders: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "X-Requested-With"
+    }
 }
 
 function Chat({ location }) {
@@ -33,7 +39,7 @@ function Chat({ location }) {
 
     const [c_State] = useContext(Context)
 
-    const SERVER = `${window.location.hostname}:3030`
+    const SERVER = DEPLOY ? HOTSNAME : `${window.location.hostname}:3030`
 
     // component did mount
     useEffect(() => {
@@ -45,7 +51,8 @@ function Chat({ location }) {
         // is username difined
         if (!c_State.username) { SetRedirect(true); return undefined }
 
-        socket = io(SERVER, socketSettigns);
+        socket = io(SERVER);
+        console.log(socket, socketSettigns);
 
         // socket "hello" signal
         socket.emit("join", { username: c_State.username, room }, (error) => {

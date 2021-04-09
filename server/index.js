@@ -13,8 +13,21 @@ const PORT = process.env.PORT || 3030
 const app = express()
 const server = http.createServer(app)
 
+// attach router to express app
+app.use(router)
+
+// use cors
+app.use(cors({
+    origin: "*"
+}))
+
+
 // attach io to server
-const io = socketio(server)
+const io = socketio(server, {
+    cors: {
+        origin: "*"
+    }
+})
 
 
 // configure socket.io
@@ -47,12 +60,6 @@ io.on("connection", (socket) => {
         }
     })
 })
-
-// attach router to express app
-app.use(router)
-
-// use cors
-app.use(cors())
 
 
 server.listen(PORT, () => {
