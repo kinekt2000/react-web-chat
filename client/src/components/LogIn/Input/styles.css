@@ -1,0 +1,48 @@
+.input-custom-field {
+    position: relative;
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+
+    display: flex;
+    height: fit-content;
+
+    padding-top: 20px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.input-custom-field input {
+    border: none;
+    -webkit-appearance: none;
+    -ms-appearence: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: #f2f2f2;
+    padding: 12px;
+    border-radius: 3px;
+    width: 100%;
+    font-size: inherit;
+    font-weight: inherit;
+    outline: none
+}
+
+.input-placeholder {
+    position: absolute;
+    left: 12px;
+    top: calc(50% + 10px);
+    transform: translateY(-50%);
+    color: #aaa;
+
+    transition:
+        top .3s ease,
+        font-size .3s ease,
+        color .3s ease,
+
+}
+
+.input-custom-field input:valid + .input-placeholder,
+.input-custom-field input:focus + .input-placeholder {
+    top: 8px;
+    font-size: smaller;
+    color: #fff
+}

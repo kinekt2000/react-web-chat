@@ -1,0 +1,21 @@
+.chat-screen-filler{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat-wrapper {
+    font-family: Roboto, sans-serif;
+    width: 600px;
+    height: 600px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+
+    border-radius: 5px;
+    overflow: hidden;
+}

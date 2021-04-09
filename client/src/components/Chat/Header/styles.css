@@ -1,0 +1,28 @@
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    height: 5rem;
+    background-color: #5181B8;
+}
+
+.header-wrapper div {
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    color: #1e2f42;
+}
+
+.header-left span {
+    margin: 1rem;
+}
+
+.header-right {
+    margin-right: 1rem;
+}
+
+.header-right a {
+    color: #1e2f42;
+}

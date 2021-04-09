@@ -1,0 +1,30 @@
+.message-input-wrapper {
+    font-family: Roboto, sans-serif;
+    height: 4rem;
+    background: whitesmoke;
+    display: flex;
+    align-items: stretch;
+    box-shadow: 0 -2px #ccc;
+}
+
+.message-input-wrapper button {
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    background: #5181B8;
+    border: none;
+    cursor: pointer;
+}
+
+.message-input-wrapper button:hover {
+    background: #446891;
+}
+
+.message-input-wrapper input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+
+    padding: 0.2rem;
+    font-size: 1.2rem;
+}

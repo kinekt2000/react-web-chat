@@ -1,0 +1,38 @@
+.message-container{
+    display: flex;
+}
+
+.message-wrapper{
+    margin: .5rem;
+    padding: .5rem;
+    border-radius: 1rem;
+    width: fit-content;
+    max-width: 60%;
+}
+
+.message-text {
+    word-wrap: break-word;
+}
+
+.message-container {
+    display: flex;
+}
+
+.message-justify-end{
+    background-color: #95a2b1;
+    margin-left: auto;
+}
+
+.message-justify-start{
+    background-color: #75aae7;
+    margin-right: auto;
+}
+
+.message-sender {
+    font-size: smaller;
+    color: rgb(59, 59, 59);
+}
+
+.message-justify-end .message-sender {
+    text-align: end;
+}
