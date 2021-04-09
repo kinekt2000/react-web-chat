@@ -30,11 +30,11 @@ function LogIn({location}) {
             <div className="login-wrapper">
                 <h1 className="login-heading">Join Chat</h1>
                 <div className="login-input-wrapper">
-                    <Input placeholder="Username" onChange={(event) => SetState({ username: event.target.value })}/>
+                    <Input value={c_State.username} placeholder="Username" onChange={(event) => SetState({ username: event.target.value })}/>
                     <small>{!c_State.username ? "Username is not valid" : ""}</small>
                 </div>
                 <div className="login-input-wrapper">
-                    <Input placeholder="Room" onChange={(event) => SetRoom(event.target.value)}/>
+                    <Input value={s_Room} placeholder="Room" onChange={(event) => SetRoom(event.target.value)}/>
                     <small>{!s_Room ? "Room is not valid" : ""}</small>
                 </div>
                 <Link to={`/chat?room=${s_Room}`}>

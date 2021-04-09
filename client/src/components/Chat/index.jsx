@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react"
-import { Redirect } from "react-router-dom"
+import { Redirect, Link } from "react-router-dom"
 import CSSModule from "react-css-modules"
 
 import queryString from "query-string"
@@ -24,6 +24,8 @@ const socketSettigns = {
 
 function Chat({ location }) {
     const [s_Redirect, SetRedirect] = useState(false)
+    const [s_Error, SetError] = useState(null)
+
     const [s_Room, SetRoom] = useState("")
 
     const [s_Message, SetMessage] = useState('')
@@ -46,8 +48,10 @@ function Chat({ location }) {
         socket = io(SERVER, socketSettigns);
 
         // socket "hello" signal
-        socket.emit("join", { username: c_State.username, room }, () => {
-            // handle server response
+        socket.emit("join", { username: c_State.username, room }, (error) => {
+            if (error) {
+                SetError(error)
+            }
         });
 
         socket.on("message", (message) => {
@@ -75,9 +79,23 @@ function Chat({ location }) {
         <div className="chat-screen-filler">
             <div className="chat-wrapper">
                 {s_Redirect ? <Redirect to={`?room=${s_Room}`} /> : null}
-                <Header room={s_Room} />
-                <Messages messages={s_MessageList} currentUser={c_State.username}/>
-                <MessageInput message={s_Message} changeMessage={SetMessage} sendMessage={sendMessage} />
+                {
+                    s_Error
+                        ? <>
+                            <div className="chat-error">
+                                <h1>Connection error</h1>
+                                <p>{s_Error}</p>
+                                <Link>
+                                    <button>Back to LogIn</button>
+                                </Link>
+                            </div>
+                        </>
+                        : <>
+                            <Header room={s_Room} />
+                            <Messages messages={s_MessageList} currentUser={c_State.username} />
+                            <MessageInput message={s_Message} changeMessage={SetMessage} sendMessage={sendMessage} />
+                        </>
+                }
             </div>
         </div>
     );
