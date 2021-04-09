@@ -1,6 +1,7 @@
 const express = require("express")
 const socketio = require("socket.io")
 const http = require("http")
+const cors = require("cors")
 
 const router = require("./router")
 const { AddUser, RemoveUser, GetUserById, GetUsersByRoom } = require("./users-data")
@@ -15,7 +16,6 @@ const server = http.createServer(app)
 // attach io to server
 const io = socketio(server)
 
-// server data
 
 // configure socket.io
 io.on("connection", (socket) => {
@@ -49,8 +49,10 @@ io.on("connection", (socket) => {
 })
 
 // attach router to express app
-app.use(router.init({
-}))
+app.use(router)
+
+// use cors
+app.use(cors())
 
 
 server.listen(PORT, () => {
